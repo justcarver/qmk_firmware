@@ -11,11 +11,11 @@ enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   EPRM,
   VRSN,
-  RGB_SLD,
-  ALT_TAB,
-  ALT_SFT_TAB,
-  CTL_ALT_DEL
+  RGB_SLD
 };
+#define ALT_TAB LATL(KC_TAB)
+#define ALT_SFT_TAB LALT(LSHFT(KC_TAB))
+#define CTL_ALT_DEL LALT(LCTL(KC_DEL))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -188,24 +188,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #ifdef RGBLIGHT_ENABLE
           rgblight_mode(1);
         #endif
-      }
-      return false;
-      break;
-    case ALT_TAB:
-      if (record->event.pressed) {
-	SEND_STRING(SS_DOWN(KC_LALT)SS_TAP(KC_TAB)SS_UP(KC_LALT));
-      }
-      return false;
-      break;
-    case ALT_SFT_TAB:
-      if (record->event.pressed) {
-	SEND_STRING(SS_DOWN(KC_LALT)SS_DOWN(KC_LSFT)SS_TAP(KC_TAB)SS_UP(KC_LSFT)SS_UP(KC_LALT));
-      }
-      return false;
-      break;
-    case CTL_ALT_DEL:
-      if (record->event.pressed) {
-	SEND_STRING(SS_DOWN(KC_LALT)SS_DOWN(KC_LCTL)SS_TAP(KC_DEL)SS_UP(KC_LCTL)SS_UP(KC_LALT));
       }
       return false;
       break;
