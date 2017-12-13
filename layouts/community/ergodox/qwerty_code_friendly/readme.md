@@ -27,17 +27,23 @@
 Some optional behavior is configurable without editing the code
 using `CFQ_` prefixed defines which can be set by passing `EXTRAFLAGS` to make.
 
+<<<<<<< HEAD
 - `CFQ_USER_KEY1` (1..4) are used for custom-keys
+=======
+- `CFQ_USER_KEY1` (1..7) are used for custom-keys
+>>>>>>> upstream/master
 - `CFQ_USE_MOMENTARY_LAYER_KEYS` is used to prevent layer keys from toggling when tapped.
 - `CFQ_USE_SWAP_RIGHT_SPACE_ENTER` swap Enter and Space on the right hand thumb cluster.
   While asymmetric, it makes Enter more easily accessible.
 - `CFQ_USE_EXPEREMENTAL_LAYER` defines an extra layer for misc extra keys/macros.
+  When set, Caps-Lock is replace by Layer3.
   Currently it's mostly empty.
 
 
 
 ## Keymap 0: Basic layer
 
+<<<<<<< HEAD
 When undefined:
 
 - `USR1` defaults to `KC_SPC`, otherwise use `CFQ_USER_KEY1`.
@@ -45,7 +51,10 @@ When undefined:
 - `USR3` defaults to `KC_FN3`, otherwise use `CFQ_USER_KEY3`.
 - `USR4` defaults to `APP`, otherwise use `CFQ_USER_KEY4`.
 
+=======
+>>>>>>> upstream/master
 ```
+Keymap 0: Basic layer
 ,--------------------------------------------------.           ,--------------------------------------------------.
 | Grave  |   !  |   @  |   #  |   $  |   %  |   {  |           |  }   |   ^  |   &  |   *  |   -  |   =  | BSpace |
 |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
@@ -55,6 +64,7 @@ When undefined:
 |--------+------+------+------+------+------|   [  |           |  ]   |------+------+------+------+------+--------|
 | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
 `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+<<<<<<< HEAD
   | LCtl |Super | Alt  | USR4 |Space |                                       | Left | Down | Up   |Right | Del  |
   `----------------------------------'                                       `----------------------------------'
                                        ,-------------.       ,-------------.
@@ -64,6 +74,31 @@ When undefined:
                                 | USR1 | USR2 |------|       |------|Enter |Space |
                                 |      |      | ~L1  |       | PgDn |      |      |
                                 `--------------------'       `--------------------'
+=======
+  | LCtl |Super | Alt  | ~L1  |Space |                                       | Left | Down | Up   |Right | Del  |
+  `----------------------------------'                                       `----------------------------------'
+                                       ,-------------.       ,-------------.
+                                       | Ins  |CapsLk|       | Home | End  |
+                                ,------|------|------|       |------+------+------.
+                                |      |      | ~L2  |       | PgUp |      |      |
+                                |Space |Enter |------|       |------|Enter |Space |
+                                |      |      | ~L1  |       | PgDn |      |      |
+                                `--------------------'       `--------------------'
+
+Optional overrides: see CFQ_USER_KEY# defines
+
+  -------+------+------+------+------+
+  |      |      |      | USR1 |      |
+  `----------------------------------'
+
+                                       ,-------------.
+                                       | USR2 | USR3 |
+                                ,------|------|------|
+                                |      |      | USR6 |
+                                | USR4 | USR5 |------|
+                                |      |      | USR7 |
+                                `--------------------'
+>>>>>>> upstream/master
 ```
 
 ## Keymap 1: Symbol layer
@@ -100,10 +135,10 @@ Notes:
 ,--------------------------------------------------.           ,--------------------------------------------------.
 |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
 |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-|        |      |      | MsUp |      |      |      |           |      |      |      |      |      |      |        |
+|        |      |      | MsUp |      |      |MWhlUp|           |      |      |      |      |      |      |        |
 |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
 |        |      |MsLeft|MsDown|MsRght|      |------|           |------| Left | Down | Up   |Right |      |        |
-|--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+|--------+------+------+------+------+------|MWhlDn|           |      |------+------+------+------+------+--------|
 |        |      | Rclk | Mclk | Lclk |      |      |           |      |      |      |      |      |      |        |
 `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
   |      |      |      |      |      |                                       |      |      |      |      |      |
@@ -119,10 +154,24 @@ Notes:
 
 ## Changelog
 
+<<<<<<< HEAD
+=======
+- 2017/11/09
+  Use Caps-Lock when `CFQ_USE_EXPEREMENTAL_LAYER` isn't defined.
+
+- 2017/11/07
+  Make thumb left thumb cluster completely configurable with defines.
+  Add mouse wheel to mouse layer.
+
+>>>>>>> upstream/master
 - 2017/10/28
   Make more keys user defined on the left thumb cluster.
   Add macro record/replay keys.
 
+<<<<<<< HEAD
 - 2017/10/4
+=======
+- 2017/10/04
+>>>>>>> upstream/master
   Move Insert key to the left thumb cluster (away from the modifier keys).
   Replace with `USR2` which defaults to `APP`.
