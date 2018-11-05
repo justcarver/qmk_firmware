@@ -20,7 +20,7 @@
   if using keys from both sides is inconvenient - the symbol layer has macros
   at the same key locations to type matching pairs.
 
-- The extra space-bar on the lower-left looks like it's in an obscure location,
+- The space-bar on the lower-left looks like it's in an obscure location,
   however using the larger thumb cluster
   ended up being more of a reach while typing.
 
@@ -29,21 +29,8 @@
 Some optional behavior is configurable without editing the code
 using `CFQ_` prefixed defines which can be set by passing `EXTRAFLAGS` to make.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-- `CFQ_USER_KEY1` (1..4) are used for custom-keys
-=======
-- `CFQ_USER_KEY1` (1..7) are used for custom-keys
->>>>>>> upstream/master
-- `CFQ_USE_MOMENTARY_LAYER_KEYS` is used to prevent layer keys from toggling when tapped.
-- `CFQ_USE_SWAP_RIGHT_SPACE_ENTER` swap Enter and Space on the right hand thumb cluster.
-  While asymmetric, it makes Enter more easily accessible.
-- `CFQ_USE_EXPEREMENTAL_LAYER` defines an extra layer for misc extra keys/macros.
-  When set, Caps-Lock is replace by Layer3.
-  Currently it's mostly empty.
-=======
 - `CFQ_USER_KEY0`
-  (0..7) are used for custom-keys
+  (0..8) are used for custom-keys
 - `CFQ_USE_MOMENTARY_LAYER_KEYS`
   is used to prevent layer keys from toggling when tapped.
 - `CFQ_USE_SHIFT_QUOTES`
@@ -56,7 +43,6 @@ using `CFQ_` prefixed defines which can be set by passing `EXTRAFLAGS` to make.
 
 - `CFQ_WORD_[A-Z]`
   defines can bind a key to an entire user defined word.
->>>>>>> upstream/master
 
 - `CFQ_USE_80_KEYS`
   enables 80 key layout, none of the extra keys are bound,
@@ -66,64 +52,7 @@ using `CFQ_` prefixed defines which can be set by passing `EXTRAFLAGS` to make.
 
 ## Keymap 0: Basic layer
 
-<<<<<<< HEAD
-When undefined:
-
-- `USR1` defaults to `KC_SPC`, otherwise use `CFQ_USER_KEY1`.
-- `USR2` defaults to `KC_ENT`, otherwise use `CFQ_USER_KEY2`.
-- `USR3` defaults to `KC_FN3`, otherwise use `CFQ_USER_KEY3`.
-- `USR4` defaults to `APP`, otherwise use `CFQ_USER_KEY4`.
-
-=======
->>>>>>> upstream/master
 ```
-<<<<<<< HEAD
-Keymap 0: Basic layer
-,--------------------------------------------------.           ,--------------------------------------------------.
-| Grave  |   !  |   @  |   #  |   $  |   %  |   {  |           |  }   |   ^  |   &  |   *  |   -  |   =  | BSpace |
-|--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-| Tab    |   Q  |   W  |   E  |   R  |   T  |   (  |           |  )   |   Y  |   U  |   I  |   O  |   P  |   \    |
-|--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-| Esc    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
-|--------+------+------+------+------+------|   [  |           |  ]   |------+------+------+------+------+--------|
-| LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
-`--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-<<<<<<< HEAD
-  | LCtl |Super | Alt  | USR4 |Space |                                       | Left | Down | Up   |Right | Del  |
-  `----------------------------------'                                       `----------------------------------'
-                                       ,-------------.       ,-------------.
-                                       | Ins  | USR3 |       | Home | End  |
-                                ,------|------|------|       |------+------+------.
-                                |      |      | ~L2  |       | PgUp |      |      |
-                                | USR1 | USR2 |------|       |------|Enter |Space |
-                                |      |      | ~L1  |       | PgDn |      |      |
-                                `--------------------'       `--------------------'
-=======
-  | LCtl |Super | Alt  | ~L1  |Space |                                       | Left | Down | Up   |Right | Del  |
-  `----------------------------------'                                       `----------------------------------'
-                                       ,-------------.       ,-------------.
-                                       | Ins  |CapsLk|       | Home | End  |
-                                ,------|------|------|       |------+------+------.
-                                |      |      | ~L2  |       | PgUp |      |      |
-                                |Space |Enter |------|       |------|Enter |Space |
-                                |      |      | ~L1  |       | PgDn |      |      |
-                                `--------------------'       `--------------------'
-
-Optional overrides: see CFQ_USER_KEY# defines
-
-  -------+------+------+------+------+
-  |      |      |      | USR1 |      |
-  `----------------------------------'
-
-                                       ,-------------.
-                                       | USR2 | USR3 |
-                                ,------|------|------|
-                                |      |      | USR6 |
-                                | USR4 | USR5 |------|
-                                |      |      | USR7 |
-                                `--------------------'
->>>>>>> upstream/master
-=======
 .--------------------------------------------------.  .--------------------------------------------------.
 | Grave  |   !  |   @  |   #  |   $  |   %  |   {  |  |  }   |   ^  |   &  |   *  |   -  |   =  | BSpace |
 |--------+------+------+------+------+------+------|  |------+------+------+------+------+------+--------|
@@ -163,7 +92,6 @@ Optional overrides: see CFQ_USER_KEY# defines.
                               | USR4 | USR5 |------|  |------|      |      |
                               |      |      | USR7 |  |      |      |      |
                               '--------------------'  '--------------------'
->>>>>>> upstream/master
 ```
 
 ## Keymap 1: KeyPad, Macro Record
@@ -194,38 +122,43 @@ Notes:
                               '--------------------'  '--------------------'
 ```
 
-## Keymap 2: Keymap 2: Media and mouse keys
+## Keymap 2: F-Keys, Media & Mouse Keys
 
 ```
 .--------------------------------------------------.  .--------------------------------------------------.
-|        |      |      |      |      |      |      |  |      |      |      |      |      |      |        |
+|        |      |      |      |      |      |      |  | Mute |      |  F10 |  F11 |  F12 |      |        |
 |--------+------+------+------+------+------+------|  |------+------+------+------+------+------+--------|
-|        |      |      | MsUp |      |      |MWhlUp|  |      |      |      |      |      |      |        |
+|        |      |      | MsUp |      |      |MWhlUp|  |VolUp |      |  F7  |  F8  |  F9  |      |        |
 |--------+------+------+------+------+------|      |  |      |------+------+------+------+------+--------|
-|        |      |MsLeft|MsDown|MsRght|      |------|  |------| Left | Down | Up   |Right |      |        |
-|--------+------+------+------+------+------|MWhlDn|  |      |------+------+------+------+------+--------|
-|        |      | Rclk | Mclk | Lclk |      |      |  |      |      |      |      |      |      |        |
+|        |      |MsLeft|MsDown|MsRght|      |------|  |------|      |  F4  |  F5  |  F6  |      |        |
+|--------+------+------+------+------+------|MWhlDn|  |VolDn |------+------+------+------+------+--------|
+|        |      | Rclk | Mclk | Lclk |      |      |  |      |      |  F1  |  F2  |  F3  |      |        |
 '--------+------+------+------+------+-------------'  '-------------+------+------+------+------+--------'
   |      |      |      |      |      |                              |      |      |      |      |      |
   '----------------------------------'                              '----------------------------------'
                                      .-------------.  .-------------.
-                                     | MRwd | MFwd |  | MPrv | MNxt |
+                                     |      |      |  | MRwd | MFwd |
                               .------+------+------|  |------+------+------.
-                              |      |      |      |  |VolUp |      |      |
-                              | Mute |      |------|  |------|      | Play |
-                              |      |      |      |  |VolDn |      |      |
+                              |      |      |      |  | MPrv |      |      |
+                              |      |      |------|  |------|      | Play |
+                              |      |      |      |  | MNxt |      |      |
                               '--------------------'  '--------------------'
 ```
 
-## Keymap 3: K-Keys & User defined words
+## Keymap 3: User Defined Words & Numbers
 
 This is for assigning whole words to single keys.
 You can define the arguments (which must be quoted) using: `CFQ_WORD_[A-Z]`
 eg: `-DCFQ_WORD_E=\"my@email.com\"`
 
+Notes:
+
+- Numbers are included on this layer since some applications differentiate
+  between numbers top row and keypad.
+
 ```
 .--------------------------------------------------.  .--------------------------------------------------.
-|        |  F1  |  F2  |  F3  |  F4  |  F5  |  F11 |  | F12  |  F6  |  F7  |  F8  |  F9  |  F10 |        |
+|        |   1  |   2  |   3  |   4  |   5  |      |  |      |   6  |   7  |   8  |   9  |   0  |        |
 |--------+------+------+------+------+------+------|  |------+------+------+------+------+------+--------|
 |        |   Q  |   W  |   E  |   R  |   T  |      |  |      |   Y  |   U  |   I  |   O  |   P  |        |
 |--------+------+------+------+------+------|      |  |      |------+------+------+------+------+--------|
@@ -246,10 +179,16 @@ eg: `-DCFQ_WORD_E=\"my@email.com\"`
 
 ## Changelog
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
+- 2018/10/19
+  Move F-Keys to key-pad like layout.
+
+- 2018/05/29
+  Add number keys for cases when keypad numbers are handled differently.
+
+- 2018/05/19
+  Move all media keys to right thumb cluster
+  (matching page up/down, home/end locations).
+
 - 2018/04/14
   Add `CFQ_USE_80_KEYS` to optionally support an 80 key layout.
 
@@ -270,7 +209,6 @@ eg: `-DCFQ_WORD_E=\"my@email.com\"`
 
   Move F-Keys to layer 3.
 
->>>>>>> upstream/master
 - 2017/11/09
   Use Caps-Lock when `CFQ_USE_EXPEREMENTAL_LAYER` isn't defined.
 
@@ -278,15 +216,10 @@ eg: `-DCFQ_WORD_E=\"my@email.com\"`
   Make thumb left thumb cluster completely configurable with defines.
   Add mouse wheel to mouse layer.
 
->>>>>>> upstream/master
 - 2017/10/28
   Make more keys user defined on the left thumb cluster.
   Add macro record/replay keys.
 
-<<<<<<< HEAD
-- 2017/10/4
-=======
 - 2017/10/04
->>>>>>> upstream/master
   Move Insert key to the left thumb cluster (away from the modifier keys).
   Replace with `USR2` which defaults to `APP`.
