@@ -29,12 +29,13 @@
 Some optional behavior is configurable without editing the code
 using `CFQ_` prefixed defines which can be set by passing `EXTRAFLAGS` to make.
 
-- `CFQ_USER_KEY1` (1..4) are used for custom-keys
-- `CFQ_USE_MOMENTARY_LAYER_KEYS` is used to prevent layer keys from toggling when tapped.
-- `CFQ_USE_SWAP_RIGHT_SPACE_ENTER` swap Enter and Space on the right hand thumb cluster.
-  While asymmetric, it makes Enter more easily accessible.
-- `CFQ_USE_EXPEREMENTAL_LAYER` defines an extra layer for misc extra keys/macros.
-  Currently it's mostly empty.
+- `CFQ_USER_KEY0`
+  (0..8) are used for custom-keys
+- `CFQ_USE_MOMENTARY_LAYER_KEYS`
+  is used to prevent layer keys from toggling when tapped.
+- `CFQ_USE_SHIFT_QUOTES`
+  an optional handy shortcut for writing quotes that inserts the
+  cursor between the quotation marks.
 
   Holding LShift, then RShift types: "" (then presses left).
 
@@ -48,30 +49,9 @@ using `CFQ_` prefixed defines which can be set by passing `EXTRAFLAGS` to make.
   they need to be set with defines: `CFQ_USER_K80_L0K0` .. `CFQ_USER_K80_L3K4`.
   Where `L#` is the layer and `K#` is the key.
 
-- `USR1` defaults to `KC_SPC`, otherwise use `CFQ_USER_KEY1`.
-- `USR2` defaults to `KC_ENT`, otherwise use `CFQ_USER_KEY2`.
-- `USR3` defaults to `KC_FN3`, otherwise use `CFQ_USER_KEY3`.
-- `USR4` defaults to `APP`, otherwise use `CFQ_USER_KEY4`.
 
-```
-,--------------------------------------------------.           ,--------------------------------------------------.
-| Grave  |   !  |   @  |   #  |   $  |   %  |   {  |           |  }   |   ^  |   &  |   *  |   -  |   =  | BSpace |
-|--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-| Tab    |   Q  |   W  |   E  |   R  |   T  |   (  |           |  )   |   Y  |   U  |   I  |   O  |   P  |   \    |
-|--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-| Esc    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
-|--------+------+------+------+------+------|   [  |           |  ]   |------+------+------+------+------+--------|
-| LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
-`--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-  | LCtl |Super | Alt  | USR4 |Space |                                       | Left | Down | Up   |Right | Del  |
-  `----------------------------------'                                       `----------------------------------'
-                                       ,-------------.       ,-------------.
-                                       | Ins  | USR3 |       | Home | End  |
-                                ,------|------|------|       |------+------+------.
-                                |      |      | ~L2  |       | PgUp |      |      |
-                                | USR1 | USR2 |------|       |------|Enter |Space |
-                                |      |      | ~L1  |       | PgDn |      |      |
-                                `--------------------'       `--------------------'
+## Keymap 0: Basic layer
+
 ```
 .--------------------------------------------------.  .--------------------------------------------------.
 | Grave  |   !  |   @  |   #  |   $  |   %  |   {  |  |  }   |   ^  |   &  |   *  |   -  |   =  | BSpace |
@@ -118,30 +98,28 @@ Optional overrides: see CFQ_USER_KEY# defines.
 
 Notes:
 
-Notes:
-
 - The double bracket keys on this layer press left to position the cursor between them.
 - The left thumb cluster is used for macro record/replay.
 
 ```
-,--------------------------------------------------.           ,--------------------------------------------------.
-|        |  F1  |  F2  |  F3  |  F4  |  F5  |  {}  |           |  }{  |  F6  |  F7  |  F8  |  F9  |  F10 |        |
-|--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
-|        |      |      |      |      |  =>  |  ()  |           |  )(  |  <=  |   7  |   8  |   9  |   \  |   F11  |
-|--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
-|        |      |      |      |      |  ->  |------|           |------|  <-  |   4  |   5  |   6  |   *  |   F12  |
-|--------+------+------+------+------+------|  []  |           |  ][  |------+------+------+------+------+--------|
-|        |      |      |      |      |  <>  |      |           |      |  ><  |   1  |   2  |   3  |   -  |        |
-`--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
-  |      |      |      |      |      |                                       |   0  |      |   .  |   +  |      |
-  `----------------------------------'                                       `----------------------------------'
-                                       ,-------------.       ,---------------.
-                                       |Start1|Start2|       |      |        |
-                                ,------|------|------|       |------+--------+------.
-                                |      |      | Stop |       |      |        |      |
-                                |Play1 |Play2 |------|       |------|        |      |
-                                |      |      |      |       |      |        |      |
-                                `--------------------'       `----------------------'
+.--------------------------------------------------.  .--------------------------------------------------.
+|        |      |      |      |      |      |  {}  |  |  }{  |      |NumLck|   /  |   *  |   -  |        |
+|--------+------+------+------+------+------+------|  |------+------+------+------+------+------+--------|
+|        |      |      |      |      |  =>  |  ()  |  |  )(  |  <=  |   7  |   8  |   9  |   +  |        |
+|--------+------+------+------+------+------|      |  |      |------+------+------+------+------+--------|
+|        |      |      |      |      |  ->  |------|  |------|  <-  |   4  |   5  |   6  |   +  |        |
+|--------+------+------+------+------+------|  []  |  |  ][  |------+------+------+------+------+--------|
+|        |      |      |      |      |  <>  |      |  |      |  ><  |   1  |   2  |   3  | Enter|        |
+'--------+------+------+------+------+-------------'  '-------------+------+------+------+------+--------'
+  |      |      |      |      |      |                              |   0  |      |   .  | Enter|      |
+  '----------------------------------'                              '----------------------------------'
+                                     .-------------.  .-------------.
+                                     |Start1|Start2|  |      |      |
+                              .------+------+------|  |------+------+------.
+                              |      |      | Stop |  |      |      |      |
+                              |Play1 |Play2 |------|  |------|      |      |
+                              |      |      |      |  |      |      |      |
+                              '--------------------'  '--------------------'
 ```
 
 ## Keymap 2: F-Keys, Media & Mouse Keys
@@ -201,10 +179,47 @@ Notes:
 
 ## Changelog
 
+- 2018/10/19
+  Move F-Keys to key-pad like layout.
+
+- 2018/05/29
+  Add number keys for cases when keypad numbers are handled differently.
+
+- 2018/05/19
+  Move all media keys to right thumb cluster
+  (matching page up/down, home/end locations).
+
+- 2018/04/14
+  Add `CFQ_USE_80_KEYS` to optionally support an 80 key layout.
+
+- 2018/03/08
+  Add `CFQ_USE_SHIFT_QUOTES` option.
+  Add `CFQ_USER_KEY8` key.
+
+  When holding shift `CFQ_WORD_[A-Z]` use title caps.
+
+- 2018/03/06
+  Add layer for user defined words (replaces `CFQ_USE_EXPEREMENTAL_LAYER`).
+
+  Minor changes to thumb cluster.
+
+  Move backspace to left thumb, optionally remap the top right backspace.
+
+  Make keypad layout match a typical numpad.
+
+  Move F-Keys to layer 3.
+
+- 2017/11/09
+  Use Caps-Lock when `CFQ_USE_EXPEREMENTAL_LAYER` isn't defined.
+
+- 2017/11/07
+  Make thumb left thumb cluster completely configurable with defines.
+  Add mouse wheel to mouse layer.
+
 - 2017/10/28
   Make more keys user defined on the left thumb cluster.
   Add macro record/replay keys.
 
-- 2017/10/4
+- 2017/10/04
   Move Insert key to the left thumb cluster (away from the modifier keys).
   Replace with `USR2` which defaults to `APP`.
