@@ -39,6 +39,20 @@ The base layout is Colemak. Since the CapsLock key is replaced with BackSpace, t
 * The right 2U key is a **TAP_KEY** macro - Hold for momentary *RAISE* layer, Tap for Enter
 * The 2nd key on the bottom row of the right hand PCB is a **LAYER_MOMENTARY** for the *FUNCTION* layer
 * The 3rd key on the bottom row of the right hand PCB is a **TAP_TOGGLE** macro for the *MOUSE* layer
+<<<<<<< HEAD
+
+### LOWER - Numpad & Navigation keys
+```
+,-----------------------------------------.    .-----------------------------------------.
+|  Tab | PgUp | Home |  Up  |  End |      |    |   7  |   8  |   9  |  \+  |      | Del  |
+|------+------+------+------+------+------|    |------+------+------+------+------+------|
+|  BS  | PgDn | Left | Down |Right |      |    |   4  |   5  |   6  | Enter|      |   '  |
+|------+------+------+------+------+------|    |------+------+------+------+------+------|
+| LSPO |   Z  |   X  |   C  |   V  |      |    |   1  |   2  |   3  | Enter|      | RSPC |
+|------+------+------+------+-------------|    |-------------+------+------+------+------|
+| Ctrl | LGUI | Alt  | LOWER| Space/Lower |    |      0      |  \.  |  Fn  | Menu | Ctrl |
+'-----------------------------------------'    '-----------------------------------------'
+=======
 
 ### LOWER - Numpad & Navigation keys
 ```
